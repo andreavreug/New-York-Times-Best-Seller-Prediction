@@ -4,7 +4,7 @@ Text preprocessing module for cleaning and normalizing book reviews.
 
 import re
 import string
-from typing import List, Optional
+from typing import List, Optional, Union
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -134,7 +134,7 @@ class TextPreprocessor:
         """
         return [self.lemmatizer.lemmatize(token) for token in tokens]
     
-    def preprocess(self, text: str, return_string: bool = True) -> str | List[str]:
+    def preprocess(self, text: str, return_string: bool = True) -> Union[str, List[str]]:
         """
         Complete preprocessing pipeline.
         
@@ -169,7 +169,7 @@ class TextPreprocessor:
             return ' '.join(tokens)
         return tokens
     
-    def preprocess_batch(self, texts: List[str], return_string: bool = True) -> List[str | List[str]]:
+    def preprocess_batch(self, texts: List[str], return_string: bool = True) -> List[Union[str, List[str]]]:
         """
         Preprocess a batch of texts.
         
