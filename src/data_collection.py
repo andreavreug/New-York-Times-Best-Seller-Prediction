@@ -193,8 +193,26 @@ def create_labeled_dataset(best_sellers: List[Dict[str, Any]],
 
 def save_data(data: List[Dict[str, Any]], filepath: str):
     """Save data to JSON file."""
+    import numpy as np
+    
+    # Convert numpy types to Python types
+    def convert_types(obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return obj
+    
+    # Convert all values in the data
+    converted_data = []
+    for item in data:
+        converted_item = {k: convert_types(v) for k, v in item.items()}
+        converted_data.append(converted_item)
+    
     with open(filepath, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+        json.dump(converted_data, f, indent=2, ensure_ascii=False)
     print(f"Saved {len(data)} records to {filepath}")
 
 

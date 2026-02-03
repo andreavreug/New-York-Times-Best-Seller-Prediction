@@ -266,7 +266,7 @@ class ModelTrainer:
         Returns:
             Tuple of (best_model_name, best_model)
         """
-        from .model_evaluation import ModelEvaluator
+        from model_evaluation import ModelEvaluator
         
         evaluator = ModelEvaluator()
         best_score = -1
