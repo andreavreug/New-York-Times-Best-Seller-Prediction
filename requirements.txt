@@ -1,0 +1,22 @@
+# Data collection and API
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Data manipulation
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Natural Language Processing
+nltk>=3.8.0
+textblob>=0.17.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+imbalanced-learn>=0.11.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Model persistence
+joblib>=1.3.0
